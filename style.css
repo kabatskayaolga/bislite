@@ -1,12 +1,20 @@
+*{
+	box-sizing: border-box;
+}
 body {
-	font-family: shmarial;
+	font-family: Arial;
 	margin: 0;
 	background-color: #e8ebf1;
 }
 	.Bwrappers {
-		max-width: 1000px;
+		max-width: 1020px;
 		margin: 0 auto;
+		
 		position: relative;
+		width: 100%;
+	}
+	@media (max-width: 1020px){
+		.Bwrappers {padding: 0 15px;}
 	}
 
 		.Bwrappers:after {
@@ -20,28 +28,29 @@ body {
 		list-style: none;
 		float: right;
 		font-size: 30px;
+		padding: 0 10px
 	}
-		.nav li {
+		.nav > li {
 			display: inline-block;
 			font-size: 13px;
 			margin-left: 10px; 
 			font-weight: 700;
 			line-height: 20px;
+			position: relative;
 		}
 			.nav li a {
 				display: block;
 				color: black;
 				text-decoration: none;
-				padding: 20px 10px;
+				padding: 10px 10px;
 			}
-			.nav li a:hover {
-				padding-top: 5px;
-				padding-bottom: 5px;
+			.nav > li:hover {
+				margin-top: -3px;
 				border-top: 3px solid #2aacc8;
 				color: #2aacc8;
 				background-color: white;
 			}
-			.nav li a:hover:after {
+			.nav li:hover:after {
 				color: black;
 			}
 
@@ -49,19 +58,23 @@ body {
 			display: none;
 		    position: absolute;
 		    width: 200px;
-		    top: 30px;
+		    top: 100%;
+		    left: 0px;
 		    left: inherit;
 		    font-size: 13px;
 		    font-weight: 700;
 			line-height: 20px;
 		    background-color: white;
+		    padding: 10px 0
 		   }
 
 					ul.subnav > li {
 					    display: block;
 					    border-bottom: 1px solid lightgray;
 					}
-
+					ul.subnav > li:last-child{
+						border: none;
+					}
 					ul.subnav > li .smiley {
 					    border-radius: 1em;
 					-webkit-box-shadow: 0 0 0 .4em #2C2C2C, inset 0 0 0 .1em #2C2C2C;
@@ -113,6 +126,7 @@ body {
 						  	z-index: 1;
 						  	border-bottom: 3px solid #2aacc8;
 						}
+						
 		.downarrow:after {
 			content: "\25be";
 			display: inline;
@@ -129,6 +143,7 @@ body {
 		font-family: Lato;
 		font-weight: 900;
 		color: black;
+		padding: 0 10px;
 	}
 
 span {
@@ -142,9 +157,13 @@ span {
 		padding-top: 20px;
 		padding-bottom: 20px;
 		height: 100%;
+
+
 	}
 			.foil img  {
 				background-color: #dd5835;
+				width: 100%;
+				padding-left: 40px;
 				display: block;
 				margin: 0 auto;
 				max-width: 1000px;
@@ -171,16 +190,33 @@ span {
 			}
 
 			.next {
-				padding: 30px;
+				padding: 30px 0;
+				display: flex;
+				margin: 0 auto;
+				justify-content: space-around;
+				flex-wrap: nowrap;
 			}
-
+			
 			.next > div  {
 				display: inline-block;
-				width: 23%;
-				margin: 5px;
-				vertical-align: top;
-			}
+				padding: 0 10px;
 
+			}
+			@media (max-width: 900px){
+				.next {
+					flex-wrap: wrap;
+				}
+				.next > div{
+					width: 50%
+				}
+			}
+			@media (max-width: 500px){
+
+				.next > div{
+					width: 100%
+				}
+			}
+		
 			.next h6 {
 				font-size: 15px;
 				font-weight: 700;
@@ -197,8 +233,7 @@ span {
 				border-radius: 50%;
 				background-position: center;
 				margin-right: 5%;
-				vertical-align: top;
-				margin-bottom: 5%;
+				vertical-align: middle;
 			}
 
 			h6.pencil:before {
@@ -233,6 +268,7 @@ span {
 
 		.next a {
 			color: #2aacc8;
+			text-decoration: none
 		}
 
 		.next a:before {
@@ -241,6 +277,7 @@ span {
 			color: black;
 			clear: both;
 			padding-right: 10px;
+
 		} 
 
 	.main {
@@ -249,25 +286,34 @@ span {
 		padding-bottom: 30px;
 	}
 
-	.latest {
+	.latest,
+	.latest-pic {
 		max-width: 1000px;
 		margin: 0 auto;
 		position: relative;
 		padding: 15px 0;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		
 	}
 
+
 		.latest ul {
-			float: right;
+			padding: 0;
+			margin: 10px 0 0px;
 		}
 
 			.latest li {
 			display: inline-block;
-			height: 15px;
-			width: 15px;
+			height: 20px;
+			width: 20px;
 			background-color: #2aacc8;
 			border-radius: 50%;
 			font-weight: 700;
 			margin: 5px; 
+			line-height: 20px;
+			font-size: 14px;
 			text-align: center;
 			}
 			.latest h6:before {
@@ -281,20 +327,36 @@ span {
 				}
 
 			.latest h6 {
-				width: 200px;
-				display: inline;
+				font-size: 15px;
+				margin: 10px 0 0px;
 			}
-
+		
 		.pic {
 			text-align: center;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
 		}
 
 		.gallery {
-			display: inline-block;
 			position: relative;
+			margin-bottom: 10px
 		}
+		@media (max-width: 900px){
+			.pic {
+				justify-content: space-around;
+			}
+
+		}
+		@media (max-width: 500px){
+
+			.next > div{
+				width: 100%
+			}
+		}
+		
 			.gallery img {
-				width: 100%;
+				/*width: 100%;*/
 			}
 
 	.other {
@@ -305,6 +367,7 @@ span {
 		bottom: 0;
 		left: 0;
 		display: none;
+		vertical-align: middle;
 	}
 
 	.gallery:hover .other {
@@ -312,32 +375,33 @@ span {
 		height: 50%;
 	}
 	.other a {
-		vertical-align: middle;
+		display: inline-block;
+		height: 100%;
 	}
 	
 		.other a:before {
 			content: "";
-			display: inline-block;
+			display: block;
 			width: 40px;
-			height: 40px;
+			height: 100%;
 			background-repeat: no-repeat;	
-			background-position: bottom;
+			background-position: center;
 		}
 		
 			.other a:first-child:before {
 				background-image: url(img/eye.png);
-				vertical-align: middle;
+				
 			}
 
 			.other a:last-child:before {
 				background-image: url(img/chain.png);
-				vertical-align: middle;
 			}
 
 hr {
 	color: lightgray;
 	max-width: 1000px;
-	margin-bottom: 10px;
+	margin: 0 auto 10px;
+	width: 100%
 	}
 	
 	.person {
@@ -346,6 +410,11 @@ hr {
 		font-size: 0;
 		vertical-align: top;
 		padding-bottom: 20px;
+	}
+	@media (max-width: 900px){
+		.person {
+			max-width: 100%;
+		}
 	}
 
 		.person h6 {
@@ -373,6 +442,8 @@ hr {
 				background-repeat: no-repeat;
 				clear: both;
 			}
+			.clientsicon{
+			}
 
 		.person p {
 			font-size: 14px;
@@ -380,7 +451,6 @@ hr {
 			font-weight: 400;
 			line-height: 24px;
 			color: #363636;
-			padding: 25px 25px 0 0;
 		}
 			.person p:last-child {
 				font-weight: 700;
@@ -393,20 +463,22 @@ hr {
 
 	.download {
 		max-width: 1000px;
-		height: 140px;
 		background-color: #e8fcfe;
 		border: 1px solid #81e4ed;
 		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
 	}
 		.download p {
-			width: 607px;
-			height: 68px;
+			max-width: 607px;
 			color: #363636;
 			font-size: 16px;
 			font-weight: 400;
 			line-height: 26px;
 			display: inline-block;
-			padding: 30px;
+			padding: 5px 30px;
 
 		}
 
@@ -415,17 +487,27 @@ hr {
 			color: #0d0707;
 			font-weight: 700;
 			line-height: 60px;
+			margin: 30px;
 			text-transform: uppercase;
 			text-align: center;
+
 			padding: 0px;
 			width: 240px;
 			height: 60px;
-			vertical-align: middle;
 			background-color: #2aacc8;
 			background-image: linear-gradient(to top, #2aacc8 0%, #2aacc8 0%, #60cede 15%, #72dae6 50%, #81e4ed 100%);
 			border: 1px solid #2aacc8;
 			border-radius: 8px;
 			box-shadow: inset 0 2px 1px rgba(255, 255, 255, 0.1), 0 2px 3px rgba(0, 0, 0, 0.2);
+		}
+		.download b a {
+			text-decoration: none;
+		}
+		@media (min-width: 1000px) {
+			.download b {
+				margin: 20px 50px 20px;
+			}
+			
 		}
 
 		.download b:before {
@@ -446,29 +528,32 @@ hr {
 		}
 
 footer {
-	text-align: justify;
+	/*text-align: justify;*/
+	display: flex;
+	flex-wrap: wrap;
 }
 
-	footer > div {
-		display: inline-block;
-		width: 14%;
-		vertical-align: top;
-		padding: 30px 0;
-	}
-
-		footer > div:first-child {
-				width: 30%;
+	
+		@media (min-width: 1000px) {
+			footer > div {
+				display: inline-block;
+				width: 14%;
+				vertical-align: top;
+				padding: 30px 0px;
 			}
+			footer > div:first-child {
+					width: 30%;
+				}
 
-		footer > div:nth-child(4) {
-				width: 18%;
+			footer > div:nth-child(4) {
+					width: 18%;
+				}
+
+			footer > div:last-child {
+					width: 22%;
+					text-align: center;
+				}
 			}
-
-		footer > div:last-child {
-				width: 22%;
-				text-align: center;
-			}
-
 	footer > div > h6 {
 		color: black;
 		font-size: 15px;
@@ -498,12 +583,12 @@ footer {
 		font-size: 14px;
 		font-weight: 400;
 	}
-
-	footer > div > a {
-		font-size: 70px;
-		line-height: 0.8;
+	@media (min-width: 1100px) {
+		footer > div > a {
+			font-size: 70px;
+			line-height: 0.8;
+		}
 	}
-
 .finish {
 	margin-bottom: 30px;
 }
@@ -516,6 +601,7 @@ footer {
 		line-height: 20px;
 		text-align: left;
 		float: left;
+		margin: 0
 	}
 
 	.finish a {
@@ -527,3 +613,4 @@ footer {
 		display: inline-block;
 		clear: both;
 	}
+	
